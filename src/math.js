@@ -1,6 +1,18 @@
 let Util = {};
 Util.factorial = (n) => {
+    if (n === 0) {
+        return 1;
+    }
 
+    if (n >= 3000) {
+        throw 'n too large'
+    }
+
+    if (n < 0) {
+        throw 'n is negative'
+    }
+
+    return n * Util.factorial(n - 1);
 };
 
 /**
