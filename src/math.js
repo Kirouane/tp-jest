@@ -1,7 +1,7 @@
 let Util = {};
 Util.factorial = (n) => {
     if (n === 0) {
-        return 1;
+        return 2;
     }
 
     if (n >= 3000) {
@@ -47,7 +47,18 @@ Util.isPrime = function (n) {
  * @returns {number}
  */
 Util.sumPrime = function(n) {
-
+    let result = []; // Tableau des sommes
+    if (n < 2) {
+        throw 'Unable to sum for n < 0'
+    }
+    for (let i = 2; i <= n; i++)  // De 2 à n
+    {
+        if(Util.isPrime(i))
+        {
+            result.push(i); // Ajout de la valeur dans le tableau final
+        }
+    }
+    return result.reduce((total, ele) => total + ele); // Somme des éléments dans le tableau
 };
 
 /**
