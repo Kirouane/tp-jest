@@ -46,3 +46,32 @@ describe('isPrime', function () {
         }
     );
 });
+
+describe('sumPrime', function () {
+    test('Test sum Prime de 6 => 10', () => {
+        expect(Util.sumPrime(6)).toBe(10);
+    });
+
+    test('Test sum Prime de 8 => 17', () => {
+        expect(Util.sumPrime(8)).toBe(17);
+    });
+
+    test('Test sum Prime de 2 => 2', () => {
+        expect(Util.sumPrime(2)).toBe(2);
+    });
+
+    test('Test sum Prime < a => throw exception', () => {
+        expect(() => { Util.sumPrime(1) }).toThrow('Unable to sum for n < 0');
+    });
+
+    test.each([
+        [2, 2],
+        [8, 17],
+        [6, 10]
+    ])(
+        'isPrime %i equals to %i',
+        (n, expected) => {
+            expect(Util.sumPrime(n)).toBe(expected);
+        }
+    );
+});
